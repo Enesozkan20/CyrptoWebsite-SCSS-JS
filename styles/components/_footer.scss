@@ -1,0 +1,46 @@
+@use "../base/mixin" as mx;
+@use "../base/global-styles" as gb;
+@use "../base/variables" as v;
+
+footer {
+  padding: 100px;
+  .footer-box-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+    align-items: start;
+    .footer-box {
+      h2 {
+        font-size: 28px;
+        color: v.$blue-color;
+        flex-wrap: nowrap;
+      }
+      h3 {
+        font-size: v.$title-3;
+      }
+      ul {
+        margin-top: 20px;
+        li {
+          margin: 18px 0;
+          a {
+            font-size: v.$subtitle;
+            color: v.$subtitle-color;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    font-size: v.$subtitle;
+    span{
+        color: v.$subtitle-color;
+    }
+    @include mx.md{
+        font-size: v.$subtitle-mobile;
+    }
+  }
+}

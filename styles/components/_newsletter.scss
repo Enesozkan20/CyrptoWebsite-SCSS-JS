@@ -1,0 +1,60 @@
+@use "../base/mixin" as mx;
+@use "../base/variables" as v;
+@use "../base/global-styles" as gb;
+
+.newsletter {
+  position: relative;
+  margin-top: 100px;
+  background-color: #f8f8f8;
+  padding: 123px 3%;
+  height: 400px;
+  &-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    max-width: 500px;
+    h1 {
+      font-size: v.$title-2;
+
+      @include mx.lg {
+        font-size: v.$title-2-mobile;
+      }
+      @include mx.md {
+        font-size: v.$title-3;
+      }
+    }
+    p {
+      font-size: v.$subtitle;
+      color: v.$subtitle-color;
+      @include mx.md {
+        font-size: v.$subtitle-mobile;
+      }
+    }
+    form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+
+      input {
+        border: 1px solid rgba(128, 128, 128, 0.755);
+        padding: 10px 15px;
+        border-radius: 4px;
+        flex: 1;
+      }
+
+      button {
+        @include gb.button;
+        background-color: v.$blue-color;
+        color: v.$white-color;
+        padding: 8px 10px;
+        font-size: v.$subtitle-mobile;
+      }
+    }
+  }
+}

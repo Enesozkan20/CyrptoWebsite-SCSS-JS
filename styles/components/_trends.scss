@@ -1,0 +1,88 @@
+@use "../base/mixin" as mx;
+@use "../base/variables" as v;
+@use "../base/global-styles" as gb;
+.trends {
+  padding: 100px;
+  
+        @include mx.md{
+         padding:25px ;
+        }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    gap: 20px;
+    h2 {
+      font-size: v.$title-2;
+    }
+
+    button {
+      @include gb.button;
+      background-color: v.$blue-color;
+      color: v.$white-color;
+      padding: 10px 20px;
+      font-size: v.$subtitle-mobile;
+    }
+  }
+
+  .card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 50px;
+
+    .card {
+      box-shadow: 0 0 10px;
+      padding: 25px;
+      border-radius: 8px;
+      display: grid;
+      grid-template-columns: 0.5fr 1fr 3fr 1fr 1fr;
+      align-items: center;
+      @include mx.md {
+        grid-template-columns: 0.5fr 1fr 3fr 1fr;
+      }
+      h4 {
+        font-size: 15px;
+        font-weight: 400;
+      }
+
+      img {
+        width: 25px;
+        height: 25px;
+      }
+
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        h3 {
+          font-weight: 600;
+        }
+
+        h5 {
+          font-size: 13px;
+          font-weight: 300;
+        }
+      }
+      .price {
+        @include mx.md {
+          display: none;
+        }
+      }
+      p {
+        font-weight: 500;
+        white-space: nowrap;
+        margin: 0 10px;
+
+        &.increase {
+          color: v.$green-color;
+        }
+        &.decrease {
+          color: v.$red-color;
+        }
+      }
+    }
+  }
+}

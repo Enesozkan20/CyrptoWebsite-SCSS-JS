@@ -1,0 +1,60 @@
+@use "../base/variables" as v;
+@use "../base/mixin" as mx;
+@use "../base/global-styles" as gb;
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 66px 100px;
+  gap: 30px;
+  align-items: center;
+
+  @include mx.lg {
+    grid-template-columns: 1fr;
+    place-items: center;
+    padding: 50px 25px;
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 450px;
+    h2 {
+      font-size: v.$title-2;
+      font-weight: 700;
+
+      @include mx.md {
+        font-size: v.$title-2-mobile;
+        text-align: center;
+      }
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      button {
+        @include gb.button;
+        background-color: v.$blue-color;
+        color: v.$white-color;
+        padding: 15px 30px;
+      }
+      input {
+        border: 1px solid gray;
+        padding: 15px 10px;
+        flex: 1;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &-image {
+    @include mx.lg {
+      display: none;
+    }
+    img {
+      width: 80%;
+      height: 80%;
+    }
+  }
+}

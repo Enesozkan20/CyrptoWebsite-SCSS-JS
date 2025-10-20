@@ -1,0 +1,55 @@
+@use "../base/mixin" as mx;
+@use "../base/variables" as v;
+
+.chart {
+  padding: 100px;
+
+  @include mx.lg {
+    padding: 75px 60px;
+  }
+
+  @include mx.md {
+    padding: 50px 25px;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 80px;
+
+    // Title
+
+    h2 {
+      font-size: v.$title-2;
+      white-space: nowrap;
+
+      @include mx.md {
+        font-size: v.$title-2-mobile;
+      }
+      @include mx.sm {
+        font-size: v.$subtitle;
+      }
+    }
+
+    // Description
+    p {
+      font-size: v.$subtitle;
+      color: v.$subtitle-color;
+      @include mx.sm {
+        font-size: v.$subtitle-mobile;
+      }
+    }
+  }
+
+  // Chart List
+  .chart-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(314px, 1fr));
+    @include mx.md {
+      place-items: center;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use "../base/variables" as v;
+@use "../base/global-styles" as gb;
+@use "../base/mixin" as mx;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 70px;
+  @include mx.sm {
+    padding: 25px 20px;
+  }
+
+  .logo {
+    color: v.$blue-color;
+    font-size: v.$title-2;
+    font-weight: 600;
+    white-space: nowrap;
+    @include mx.sm {
+      font-size: v.$title-2-mobile;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @include mx.sm {
+      display: none;
+    }
+
+    button {
+      @include gb.button;
+
+      &:first-child {
+        background-color: transparent;
+        font-weight: 600;
+        font-size: v.$title-2-mobile;
+      }
+
+      &:last-child {
+        background-color: v.$blue-color;
+        color: v.$white-color;
+      }
+    }
+  }
+}

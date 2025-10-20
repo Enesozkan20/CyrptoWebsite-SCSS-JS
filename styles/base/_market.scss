@@ -1,0 +1,120 @@
+@use "../base/variables" as v;
+@use "../base/mixin" as mx;
+@use "../base/global-styles" as gb;
+.market {
+  padding: 80px 100px;
+  @include mx.lg {
+    padding: 65px 60px;
+  }
+  @include mx.md {
+    padding: 50px 25px;
+  }
+
+  h1 {
+    font-size: v.$title-2;
+    margin-bottom: 70px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+    table-layout: auto;
+
+    thead {
+      td {
+        font-size: v.$subtitle;
+        font-weight: 500;
+        color: v.$subtitle-color;
+        padding: 0 15px 10px 15px;
+        white-space: nowrap;
+        &:nth-child(4) {
+          @include mx.sm {
+            display: none;
+          }
+        }
+        &:nth-child(5) {
+          @include mx.lg {
+            display: none;
+          }
+        }
+        &:nth-child(6) {
+          @include mx.md {
+            display: none;
+          }
+        }
+        &:nth-child(7) {
+          @include mx.sm {
+            display: none;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: v.$gray-color;
+        }
+        td {
+          padding: 10px;
+          text-align: left;
+          font-size: v.$subtitle-mobile;
+
+          &:nth-child(2) {
+            img {
+              width: 44px;
+              height: 44px;
+              object-fit: cover;
+            }
+          }
+
+          &:nth-child(3) {
+            font-weight: 600;
+            font-size: v.$subtitle;
+          }
+          &:nth-child(4) {
+            @include mx.sm {
+              display: none;
+            }
+          }
+          &:nth-child(5) {
+            @include mx.lg {
+              display: none;
+            }
+          }
+
+          &:nth-child(6) {
+            @include mx.md {
+              display: none;
+            }
+          }
+          &:nth-child(7) {
+            @include mx.sm {
+              display: none;
+            }
+          }
+        }
+        .change {
+          font-weight: 600;
+        }
+        .change-increase {
+          color: v.$green-color;
+        }
+        .change-decrease {
+          color: v.$red-color;
+        }
+        button {
+          @include gb.button;
+          padding: 10px 15px;
+          background-color: v.$blue-color;
+          color: v.$white-color;
+          cursor: pointer;
+          transition: all 0.5s ease;
+          &:hover {
+            filter: brightness(70%);
+          }
+        }
+      }
+    }
+  }
+}

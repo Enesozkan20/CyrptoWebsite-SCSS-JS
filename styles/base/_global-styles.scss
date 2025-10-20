@@ -1,0 +1,10 @@
+@use "./variables" as v;
+
+// Buttons
+@mixin button{
+    padding: 20px 30px;
+    font-size: v.$subtitle;
+    font-weight: 500;
+    border-radius: 5px;
+    white-space: nowrap;
+}
